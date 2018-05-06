@@ -1,7 +1,7 @@
 package Lights;
 
 import java.awt.Color;
-
+import Other.*;
 import javax.swing.JPanel;
 
 
@@ -20,7 +20,7 @@ public class CarsLight extends Thread
     InState inState;
     InInState inInState;
 
-    public ShloshaAvot( Ramzor ramzor,JPanel panel,int key,Event64 evTogreen,Event64 evToRed,Event64 evToShabat,Event64 evToChol,Event64 evAtRed)
+    public CarsLight( Ramzor ramzor,JPanel panel,int key,Event64 evTogreen,Event64 evToRed,Event64 evToShabat,Event64 evToChol,Event64 evAtRed)
     {
         this.ramzor=ramzor;
         this.panel=panel;

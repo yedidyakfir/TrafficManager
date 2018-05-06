@@ -1,8 +1,7 @@
-// event with Object,   Tishrey 5764
-// filename  : Event64.java
+package Other;
 
 import java.lang.Thread;
-class Event64
+public class Event64
 {
     private Object localData;
     private boolean inUse;

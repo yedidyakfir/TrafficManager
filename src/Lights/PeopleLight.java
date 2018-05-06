@@ -2,9 +2,9 @@ package Lights;
 
 import java.awt.Color;
 import javax.swing.JPanel;
+import Other.*;
 
-
-public class PeopleLight
+public class PeopleLight extends Thread
 {
     Ramzor ramzor;
     JPanel panel;
@@ -15,7 +15,7 @@ public class PeopleLight
     OutState outState;
     InState inState;
 
-    public ShneyLuchot( Ramzor ramzor,JPanel panel,Event64 evTogreen,Event64 evToRed,Event64 evToShabat,Event64 evToChol,Event64 evAtRed )
+    public PeopleLight( Ramzor ramzor,JPanel panel,Event64 evTogreen,Event64 evToRed,Event64 evToShabat,Event64 evToChol,Event64 evAtRed )
     {
         this.ramzor=ramzor;
         this.panel=panel;
