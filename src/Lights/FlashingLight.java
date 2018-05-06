@@ -3,14 +3,14 @@ package Lights;
 import javax.swing.*;
 import java.awt.*;
 
-public class FlashingLight
+public class FlashingLight extends Thread
 {
     Ramzor ramzor;
     JPanel panel;
     enum State {ON,OFF}
     State state = State.OFF;
 
-    public Echad( Ramzor ramzor,JPanel panel)
+    public FlashingLight(Ramzor ramzor,JPanel panel)
     {
         this.ramzor=ramzor;
         this.panel=panel;

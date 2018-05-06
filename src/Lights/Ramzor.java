@@ -1,17 +1,11 @@
+package Lights;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-/*
- * Created on Mimuna 5767  upDate on Tevet 5770
- */
-
-/**
- * @author לויאן
- */
-
-class Ramzor
+public class Ramzor
 {
     int numOfLights;
     int xP[],yP[];
