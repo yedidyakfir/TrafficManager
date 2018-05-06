@@ -1,21 +1,18 @@
 package GUI;
 
+import Lights.Ramzor;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-/*
- * Created on Mimuna 5767  upDate on Addar 5772
- */
 
-/**
- * @author לויאן
- */
+
 
 class TrafficLightPanel extends JPanel
 {
-    Ramzor  ramzorim[];
+    Ramzor ramzorim[];
 
     public TrafficLightPanel(Ramzor[] ramzorim)
     {

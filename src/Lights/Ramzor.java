@@ -7,9 +7,9 @@ import javax.swing.JPanel;
 
 public class Ramzor
 {
-    int numOfLights;
-    int xP[],yP[];
-    int diameter;
+    public int numOfLights;
+    public int xP[],yP[];
+   public int diameter;
     Color colorLight[];
 
     Ramzor(int num,int dia,int x0,int y0)
@@ -51,7 +51,7 @@ public class Ramzor
         xP[2]=x2; yP[2]=y2;
     }
 
-    void drow(Graphics page)
+    public void drow(Graphics page)
     {
         for(int i=0;i<numOfLights;i++)
         {

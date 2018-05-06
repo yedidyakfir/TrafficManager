@@ -1,5 +1,7 @@
 package GUI;
 
+import Lights.Ramzor;
+
 import javax.swing.JFrame;
 
 /*
