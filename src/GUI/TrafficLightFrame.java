@@ -3,14 +3,7 @@ package GUI;
 import Lights.Ramzor;
 
 import javax.swing.JFrame;
-
-/*
- * Created on Mimuna 5767  upDate on Tevet 5770
- */
-
-/**
- * @author לויאן
- */
+import Lights.*;
 
 public class TrafficLightFrame extends JFrame
 {

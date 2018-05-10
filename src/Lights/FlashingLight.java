@@ -5,15 +5,17 @@ import java.awt.*;
 
 public class FlashingLight extends Thread
 {
-    Ramzor ramzor;
-    JPanel panel;
-    enum State {ON,OFF}
-    State state = State.OFF;
+    private Ramzor ramzor;
+    private JPanel panel;
+    private enum State {ON,OFF}
+    private State state = State.OFF;
+
+    private int timeToChange = 1000;//how long until the light will change
 
     public FlashingLight(Ramzor ramzor,JPanel panel)
     {
-        this.ramzor=ramzor;
-        this.panel=panel;
+        this.ramzor = ramzor;
+        this.panel = panel;
         start();
     }
 
@@ -26,14 +28,14 @@ public class FlashingLight extends Thread
             {
                 switch (state) {
                     case ON:
-                        sleep(1000);
+                        sleep(timeToChange);
                         SetOff();
-                        state=State.OFF;
+                        state = State.OFF;
                         break;
                     case OFF:
-                        sleep(1000);
+                        sleep(timeToChange);
                         SetOn();
-                        state=State.ON;
+                        state = State.ON;
                         break;
                 }
             }
@@ -42,7 +44,7 @@ public class FlashingLight extends Thread
     }
     public void setLight(int place, Color color)
     {
-        ramzor.colorLight[place-1]=color;
+        ramzor.colorLight[place-1] = color;
         panel.repaint();
     }
     private void SetOn() {

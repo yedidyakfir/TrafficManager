@@ -17,13 +17,13 @@ public class PeopleLight extends Thread
 
     public PeopleLight( Ramzor ramzor,JPanel panel,Event64 evTogreen,Event64 evToRed,Event64 evToShabat,Event64 evToChol,Event64 evAtRed )
     {
-        this.ramzor=ramzor;
-        this.panel=panel;
-        this.evToChol=evToChol;
-        this.evTogreen=evTogreen;
-        this.evToRed=evToRed;
-        this.evToShabat=evToShabat;
-        this.evAtRed=evAtRed;
+        this.ramzor = ramzor;
+        this.panel = panel;
+        this.evToChol = evToChol; // event that say to switch to chol
+        this.evTogreen = evTogreen; // event say to us to switch to green light
+        this.evToRed = evToRed; // event say to us to switch to red light
+        this.evToShabat = evToShabat; // event that say to switch to shabat
+        this.evAtRed = evAtRed; //event that we send to say the light is red
         start();
     }
 
@@ -35,38 +35,50 @@ public class PeopleLight extends Thread
                     case ON_CHOL:
                         inState = InState.ON_RED;
                         SetToRed();
-                        while (outState == OutState.ON_CHOL) {
-                            switch (inState) {
+                        while (outState == OutState.ON_CHOL)
+                        {
+                            switch (inState)
+                            {
                                 case ON_GREEN:
-                                    while (true) {
-                                        if (evToRed.arrivedEvent()) {
+                                    while (true)
+                                    {
+                                        if (evToRed.arrivedEvent())
+                                        {
                                             evToRed.waitEvent();
                                             SetToRed();
                                             evAtRed.sendEvent();
                                             inState = InState.ON_RED;
                                             break;
-                                        } else if (evToShabat.arrivedEvent()) {
+                                        }
+                                        else if (evToShabat.arrivedEvent())
+                                        {
                                             evToShabat.waitEvent();
                                             SetToGray();
                                             outState = OutState.ON_SHABAT;
                                             break;
-                                        } else
+                                        }
+                                        else
                                             yield();
                                     }
                                     break;
                                 case ON_RED:
-                                    while (true) {
-                                        if (evTogreen.arrivedEvent()) {
+                                    while (true)
+                                    {
+                                        if (evTogreen.arrivedEvent())
+                                        {
                                             evTogreen.waitEvent();
                                             SetToGreen();
                                             inState = InState.ON_GREEN;
                                             break;
-                                        } else if (evToShabat.arrivedEvent()) {
+                                        }
+                                        else if (evToShabat.arrivedEvent())
+                                        {
                                             evToShabat.waitEvent();
                                             SetToGray();
                                             outState = OutState.ON_SHABAT;
                                             break;
-                                        } else
+                                        }
+                                        else
                                             yield();
                                     }
                                     break;
