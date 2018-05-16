@@ -47,7 +47,7 @@ public class CarsLight extends Thread
                                     while (true) {
                                         if (evTogreen.arrivedEvent()) {
                                             evTogreen.waitEvent();
-                                            SetToOrange();
+                                            SetToOrange(); //SetToRedYellow
                                             inState = InState.ON_ORANGE;
                                             break;
                                         } else if (evToShabat.arrivedEvent()) {
