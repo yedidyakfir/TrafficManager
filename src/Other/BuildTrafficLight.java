@@ -2,6 +2,12 @@ package Other;
 
 import javax.swing.JRadioButton;
 
+import Lights.CarsLight;
+import Lights.FlashingLight;
+import Lights.PeopleLight;
+import Lights.Ramzor;
+import GUI.*;
+
 /*
  * Created on Mimuna 5767  upDate on Addar 5772
  */
@@ -48,17 +54,17 @@ public class BuildTrafficLight
 
         TrafficLightFrame tlf=new TrafficLightFrame(" ���''� installation of traffic lights",ramzorim);
 
-        new ShloshaAvot(ramzorim[0],tlf.myPanel,1);
-        new ShloshaAvot(ramzorim[1],tlf.myPanel,2);
-        new ShloshaAvot(ramzorim[2],tlf.myPanel,3);
-        new ShloshaAvot(ramzorim[3],tlf.myPanel,4);
+        new CarsLight(ramzorim[0],tlf.myPanel,1);
+        new CarsLight(ramzorim[1],tlf.myPanel,2);
+        new CarsLight(ramzorim[2],tlf.myPanel,3);
+        new CarsLight(ramzorim[3],tlf.myPanel,4);
 
-        new ShneyLuchot(ramzorim[4],tlf.myPanel);
-        new ShneyLuchot(ramzorim[5],tlf.myPanel);
-        new ShneyLuchot(ramzorim[9],tlf.myPanel);
-        new ShneyLuchot(ramzorim[10],tlf.myPanel);
+        new PeopleLight(ramzorim[4],tlf.myPanel);
+        new PeopleLight(ramzorim[5],tlf.myPanel);
+        new PeopleLight(ramzorim[9],tlf.myPanel);
+        new PeopleLight(ramzorim[10],tlf.myPanel);
 
-        new Echad(ramzorim[16],tlf.myPanel);
+        new FlashingLight(ramzorim[16],tlf.myPanel);
 
         MyActionListener myListener=new MyActionListener();
 

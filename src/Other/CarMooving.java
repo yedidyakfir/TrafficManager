@@ -1,5 +1,7 @@
 package Other;
 
+import Lights.CarsLight;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,13 +18,13 @@ public class CarMooving extends Thread
 {
     JLabel myLabel;
     JPanel myPanel;
-    private ShloshaAvot myRamzor;
+    private CarsLight myRamzor;
     private int key;
     int x, dx;
     int y, dy;
     ImageIcon imageIcon;
     boolean first2=true;
-    public CarMooving(JPanel myPanel, ShloshaAvot myRamzor,int key)
+    public CarMooving(JPanel myPanel, CarsLight myRamzor,int key)
     {
         this.myPanel=myPanel;
         this.myRamzor=myRamzor;

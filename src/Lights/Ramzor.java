@@ -12,7 +12,7 @@ public class Ramzor
     public int diameter;
     Color colorLight[];
 
-    Ramzor(int num,int dia,int x0,int y0)
+    public Ramzor(int num,int dia,int x0,int y0)
     {
         numOfLights = num;
         diameter = dia;
@@ -23,7 +23,7 @@ public class Ramzor
         xP[0] = x0; yP[0] = y0;
     }
 
-    Ramzor(int num,int dia,int x0,int y0,int x1,int y1)
+    public Ramzor(int num,int dia,int x0,int y0,int x1,int y1)
     {
         numOfLights = num;
         diameter = dia;
@@ -36,7 +36,7 @@ public class Ramzor
         xP[1] = x1; yP[1] = y1;
     }
 
-    Ramzor(int num,int dia,int x0,int y0,int x1,int y1,int x2,int y2)
+    public Ramzor(int num,int dia,int x0,int y0,int x1,int y1,int x2,int y2)
     {
         numOfLights = num;
         diameter = dia;
