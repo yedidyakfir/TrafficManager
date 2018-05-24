@@ -34,22 +34,20 @@ public class CarsLight extends Thread
 
     public void run()
     {
-        try
-        {
-            outState=OutState.ON_CHOL;
-            while (true)
-            {
+        try {
+            outState = OutState.ON_CHOL;
+            while (true) {
                 switch (outState) {
                     case ON_CHOL:
                         SetToRed();
-                        inState=InState.ON_RED;
-                        while(outState==OutState.ON_CHOL) {
+                        inState = InState.ON_RED;
+                        while (outState == OutState.ON_CHOL) {
                             switch (inState) {
                                 case ON_RED:
                                     while (true) {
                                         if (evTogreen.arrivedEvent()) {
                                             evTogreen.waitEvent();
-                                            SetToOrange();
+                                            SetToOrange(); //SetToRedYellow
                                             inState = InState.ON_ORANGE;
                                             break;
                                         } else if (evToShabat.arrivedEvent()) {
@@ -112,7 +110,7 @@ public class CarsLight extends Thread
                                     SetGreenOn();
                                     count = 3;
                                     inInState = InInState.GREEN_ON;
-                                    while (count > 3 && outState != OutState.ON_SHABAT) {
+                                    while (count > 0 && outState != OutState.ON_SHABAT) {
                                         switch (inInState) {
                                             case GREEN_ON:
                                                 if (evToShabat.arrivedEvent()) {
@@ -147,14 +145,27 @@ public class CarsLight extends Thread
                         break;
                     case ON_SHABAT:
                         SetYellowOn();
-                        inState=InState.YELLOW_ON;
-                        while (true)
-                        {
-
+                        inState = InState.YELLOW_ON;
+                        while (true) {
+                            if (evToChol.arrivedEvent()) {
+                                evToChol.waitEvent();
+                                outState = OutState.ON_CHOL;
+                                break;
+                            }
+                            switch (inState) {
+                                case YELLOW_ON:
+                                    sleep(1000);
+                                    SetYellowOff();
+                                    inState = InState.YELLOW_OFF;
+                                    break;
+                                case YELLOW_OFF:
+                                    sleep(1000);
+                                    SetYellowOn();
+                                    inState = InState.YELLOW_ON;
+                                    break;
+                            }
                         }
-
                 }
-
             }
         } catch (InterruptedException e) {}
 
