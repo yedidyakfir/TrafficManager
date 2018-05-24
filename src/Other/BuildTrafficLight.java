@@ -88,6 +88,7 @@ public class BuildTrafficLight
             butt[i].addActionListener(myListener);
             tlf.addCmp(butt[i]);
         }
+
         butt[0].setBounds(620, 30, 18, 18);
         butt[1].setBounds(620, 218, 18, 18);
         butt[2].setBounds(620, 267, 18, 18);
