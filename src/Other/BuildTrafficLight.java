@@ -82,11 +82,11 @@ public class BuildTrafficLight
 
         for (int i=0;i<butt.length-1;i++)
         {
-            butt[i]  =new JRadioButton();
+            butt[i] = new JRadioButton();
             butt[i].setName(Integer.toString(i+4));
             butt[i].setOpaque(false);
             butt[i].addActionListener(myListener);
-            tlf.myPanel.add(butt[i]);
+            tlf.addCmp(butt[i]);
         }
         butt[0].setBounds(620, 30, 18, 18);
         butt[1].setBounds(620, 218, 18, 18);
@@ -101,12 +101,12 @@ public class BuildTrafficLight
         butt[10].setBounds(220,218, 18, 18);
         butt[11].setBounds(220,30, 18, 18);
 
-        butt[12]  =new JRadioButton();
+        butt[12] = new JRadioButton();
         butt[12].setName(Integer.toString(16));
         butt[12].setBounds(50,30, 55, 20);
         butt[12].setText("���");
         butt[12].setOpaque(false);
         butt[12].addActionListener(myListener);
-        tlf.myPanel.add(butt[12]);
+        tlf.addCmp(butt[12]);
     }
 }

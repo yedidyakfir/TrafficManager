@@ -5,6 +5,8 @@ import Lights.Ramzor;
 import javax.swing.JFrame;
 import Lights.*;
 
+import java.awt.*;
+
 public class TrafficLightFrame extends JFrame
 {
     private final int WIDTH = 800, HEIGHT = 750;
@@ -22,5 +24,11 @@ public class TrafficLightFrame extends JFrame
         setResizable(false);
         setVisible(true);
     }
+
+    public void addCmp(Component cmp)
+    {
+        myPanel.add(cmp);
+    }
+
 }
 
