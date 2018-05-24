@@ -31,6 +31,7 @@ public class BuildTrafficLight
                 evToChol = new Event64[numOfLights - 1],
                 evAtRed = new Event64[numOfLights - 1];
 
+
         for(int i=0; i<numOfLights - 1 ; i++)
         {
             evTogreen[i]=new Event64();
@@ -68,10 +69,10 @@ public class BuildTrafficLight
         new CarsLight(ramzorim[2],tlf.myPanel,3,evTogreen[2],evToRed[2],evToShabat[2],evToChol[2],evAtRed[2]);
         new CarsLight(ramzorim[3],tlf.myPanel,4,evTogreen[3],evToRed[3],evToShabat[3],evToChol[3],evAtRed[3]);
 
-        new PeopleLight(ramzorim[4],tlf.myPanel);
-        new PeopleLight(ramzorim[5],tlf.myPanel);
-        new PeopleLight(ramzorim[9],tlf.myPanel);
-        new PeopleLight(ramzorim[10],tlf.myPanel);
+        for(int i = 0;i<12;i++)
+        {
+            new PeopleLight(ramzorim[4 + i],tlf.myPanel,evTogreen[4 + i],evToRed[4 + i],evToShabat[4 + i],evToChol[4 + i],evAtRed[4 + i]);
+        }
 
         new FlashingLight(ramzorim[16],tlf.myPanel);
 
