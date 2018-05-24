@@ -1,5 +1,7 @@
 package Other;
 
+import Lights.CarsLight;
+
 import javax.swing.JPanel;
 
 /*
@@ -13,9 +15,9 @@ import javax.swing.JPanel;
 public class CarsMaker extends Thread
 {
     JPanel myPanel;
-    private ShloshaAvot myRamzor;
+    private CarsLight myRamzor;
     int key;
-    public CarsMaker(JPanel myPanel,ShloshaAvot myRamzor, int key)
+    public CarsMaker(JPanel myPanel,CarsLight myRamzor, int key)
     {
         this.myPanel=myPanel;
         this.myRamzor=myRamzor;
