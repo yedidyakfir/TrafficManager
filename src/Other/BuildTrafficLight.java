@@ -1,5 +1,6 @@
 package Other;
 
+import Lights.Ramzor;
 import javax.swing.JRadioButton;
 
 import Lights.CarsLight;
@@ -22,13 +23,21 @@ public class BuildTrafficLight
     {
         final int numOfLights=4+12+1;
 
-        Event64[] evToGreen,evToRed;
-        evToGreen = new Event64[numOfLights-1];
-        evToRed = new Event64[numOfLights-1];
-        for(int i=0; i<evToGreen.length ; i++)
+
+
+        Event64[] evTogreen = new Event64[numOfLights - 1],
+                evToRed = new Event64[numOfLights - 1],
+                evToShabat = new Event64[numOfLights - 1],
+                evToChol = new Event64[numOfLights - 1],
+                evAtRed = new Event64[numOfLights - 1];
+
+        for(int i=0; i<numOfLights - 1 ; i++)
         {
-            evToGreen[i]=new Event64();
+            evTogreen[i]=new Event64();
             evToRed[i]=new Event64();
+            evToChol[i]= new Event64();
+            evToShabat[i]=new Event64();
+            evAtRed[i]= new Event64();
         }
 
         Ramzor ramzorim[]=new Ramzor[numOfLights];
@@ -54,10 +63,10 @@ public class BuildTrafficLight
 
         TrafficLightFrame tlf=new TrafficLightFrame(" ���''� installation of traffic lights",ramzorim);
 
-        new CarsLight(ramzorim[0],tlf.myPanel,1);
-        new CarsLight(ramzorim[1],tlf.myPanel,2);
-        new CarsLight(ramzorim[2],tlf.myPanel,3);
-        new CarsLight(ramzorim[3],tlf.myPanel,4);
+        new CarsLight(ramzorim[0],tlf.myPanel,1,evTogreen[0],evToRed[0],evToShabat[0],evToChol[0],evAtRed[0]);
+        new CarsLight(ramzorim[1],tlf.myPanel,2,evTogreen[1],evToRed[1],evToShabat[1],evToChol[1],evAtRed[1]);
+        new CarsLight(ramzorim[2],tlf.myPanel,3,evTogreen[2],evToRed[2],evToShabat[2],evToChol[2],evAtRed[2]);
+        new CarsLight(ramzorim[3],tlf.myPanel,4,evTogreen[3],evToRed[3],evToShabat[3],evToChol[3],evAtRed[3]);
 
         new PeopleLight(ramzorim[4],tlf.myPanel);
         new PeopleLight(ramzorim[5],tlf.myPanel);
