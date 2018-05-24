@@ -16,7 +16,7 @@ public class CroosRoadControler extends Thread
                     switch (inState)
                     {
                         case InGreen:
-
+                            
                     }
             }
         } catch (Exception e) {
