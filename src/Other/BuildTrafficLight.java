@@ -23,16 +23,18 @@ public class BuildTrafficLight
     {
         final int numOfLights=4+12+1;
 
+        Integer[] GroupA = {0}; //cars light
+        Integer[] GroupB = {1}; //cars light
+        Integer[] GroupC = {2,3}; //cars light
 
-
-        Event64[] evTogreen = new Event64[numOfLights - 1],
+        Event64[] evTogreen = new Event64[numOfLights - 1], //numOfLights - 1 (without flashing light)
                 evToRed = new Event64[numOfLights - 1],
                 evToShabat = new Event64[numOfLights - 1],
                 evToChol = new Event64[numOfLights - 1],
                 evAtRed = new Event64[numOfLights - 1];
 
 
-        for(int i=0; i<numOfLights - 1 ; i++)
+        for(int i=0; i<numOfLights - 1 ; i++) //Initializing events for lights
         {
             evTogreen[i]=new Event64();
             evToRed[i]=new Event64();
@@ -64,17 +66,23 @@ public class BuildTrafficLight
 
         TrafficLightFrame tlf=new TrafficLightFrame(" ���''� installation of traffic lights",ramzorim);
 
+        //CarsLight Initializing
         new CarsLight(ramzorim[0],tlf.myPanel,1,evTogreen[0],evToRed[0],evToShabat[0],evToChol[0],evAtRed[0]);
         new CarsLight(ramzorim[1],tlf.myPanel,2,evTogreen[1],evToRed[1],evToShabat[1],evToChol[1],evAtRed[1]);
         new CarsLight(ramzorim[2],tlf.myPanel,3,evTogreen[2],evToRed[2],evToShabat[2],evToChol[2],evAtRed[2]);
         new CarsLight(ramzorim[3],tlf.myPanel,4,evTogreen[3],evToRed[3],evToShabat[3],evToChol[3],evAtRed[3]);
 
+        //PeopleLight Initializing
         for(int i = 0;i<12;i++)
         {
             new PeopleLight(ramzorim[4 + i],tlf.myPanel,evTogreen[4 + i],evToRed[4 + i],evToShabat[4 + i],evToChol[4 + i],evAtRed[4 + i]);
         }
 
+        //FlashingLight Initializing
         new FlashingLight(ramzorim[16],tlf.myPanel);
+
+        //Other.CroosRoadControler Initializing
+        CroosRoadControler croosRoadControler = new CroosRoadControler(GroupA,GroupB, GroupC,evTogreen,evToRed,evToShabat,evToChol,evAtRed);
 
         MyActionListener myListener=new MyActionListener();
 

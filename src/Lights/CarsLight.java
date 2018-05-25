@@ -237,8 +237,5 @@ public class CarsLight extends Thread
         setLight(2,Color.LIGHT_GRAY);
     }
 
-
-
-
 }
 
