@@ -23,9 +23,9 @@ public class BuildTrafficLight
     {
         final int numOfLights=4+12+1;
 
-        Integer[] GroupA = {0}; //cars light
-        Integer[] GroupB = {1}; //cars light
-        Integer[] GroupC = {2,3}; //cars light
+        Integer[] GroupA = {0}; //cars light for A
+        Integer[] GroupB = {1}; //cars light for B
+        Integer[] GroupC = {2,3}; //cars light for C
 
         Event64[] evTogreen = new Event64[numOfLights - 1], //numOfLights - 1 (without flashing light)
                 evToRed = new Event64[numOfLights - 1],

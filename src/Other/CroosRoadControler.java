@@ -5,9 +5,7 @@ import Other.Event64;
 public class CroosRoadControler extends Thread {
 
     enum HolShabat {ON_SHABAT, ON_CHOL}
-
     enum Group {GroupA, GroupB, GroupC}
-
     enum GroupState {InGreen, WaitintForRed, WaitingAdditionalSecond}
 
     HolShabat holShabat;
