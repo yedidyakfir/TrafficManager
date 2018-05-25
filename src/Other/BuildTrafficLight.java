@@ -81,7 +81,7 @@ public class BuildTrafficLight
         //FlashingLight Initializing
         new FlashingLight(ramzorim[16],tlf.myPanel);
 
-        //Other.CroosRoadControler Initializing
+        //CroosRoadControler Initializing
         CroosRoadControler croosRoadControler = new CroosRoadControler(GroupA,GroupB, GroupC,evTogreen,evToRed,evToShabat,evToChol,evAtRed);
 
         MyActionListener myListener=new MyActionListener();

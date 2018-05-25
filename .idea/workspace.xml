@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aa43c29b-91b0-4521-a7e9-5909956dc59a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/CroosRoadControler.java" afterPath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" />
-      <change beforePath="$PROJECT_DIR$/src/Lights/CarsLight.java" afterPath="$PROJECT_DIR$/src/Lights/CarsLight.java" />
       <change beforePath="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" afterPath="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,7 +30,7 @@
       <file leaf-file-name="CroosRoadControler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1669">
+            <state relative-caret-position="1735">
               <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
               <folding />
             </state>
@@ -42,8 +40,8 @@
       <file leaf-file-name="BuildTrafficLight.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Other/BuildTrafficLight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="83" column="47" lean-forward="true" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+            <state relative-caret-position="635">
+              <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,8 +161,8 @@
         <option value="$PROJECT_DIR$/src/Other/CarsMaker.java" />
         <option value="$PROJECT_DIR$/src/CroosRoadControler.java" />
         <option value="$PROJECT_DIR$/src/Lights/CarsLight.java" />
-        <option value="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" />
         <option value="$PROJECT_DIR$/src/Other/CroosRoadControler.java" />
+        <option value="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" />
       </list>
     </option>
   </component>
@@ -402,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527163028972</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="DAVID">
+      <created>1527244533718</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1527244533720</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -902,16 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Other/BuildTrafficLight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="83" column="47" lean-forward="true" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/CarsMaker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -932,9 +927,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Other/BuildTrafficLight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="635">
+          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1669">
+        <state relative-caret-position="1735">
           <caret line="86" column="5" lean-forward="true" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
           <folding />
         </state>
