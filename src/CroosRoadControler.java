@@ -29,7 +29,7 @@ public class CroosRoadControler extends Thread
         this.GroupC = GroupC;
         this.GroupApeople = GroupApeople;
         this.GroupBpeople = GroupBpeople;
-        this.GroupCpeople = GroupCpeople;
+        this.GroupCpeople = GroupCpeople;//
         this.evTogreen=evTogreen;
         this.evToRed=evToRed;
         this.evToShabat=evToShabat;
