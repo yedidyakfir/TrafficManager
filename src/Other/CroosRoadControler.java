@@ -19,6 +19,7 @@ public class CroosRoadControler extends Thread {
     Event64[] evTogreen, evToRed, evToShabat, evToChol, evAtRed;
 
     int timeInGreen = 10000;
+    int timeInSecond = 1000;
 
     public CroosRoadControler(Integer[] GroupA, Integer[] GroupB, Integer[] GroupC, Event64[] evTogreen, Event64[] evToRed, Event64[] evToShabat, Event64[] evToChol, Event64[] evAtRed) {
 
@@ -52,14 +53,61 @@ public class CroosRoadControler extends Thread {
                                             doAGreen();
                                             wait(timeInGreen);
                                             inState = GroupState.WaitintForRed;
+                                            break;
                                         case WaitintForRed:
                                             doARed();
-                                            while (true) {
-                                                if()
-                                            }
+                                            this.WaitAForRed();
+                                            inState = GroupState.WaitingAdditionalSecond;
+                                            break;
+                                        case WaitingAdditionalSecond:
+                                            wait(timeInSecond);
+                                            outState = Group.GroupB;
+                                            inState = GroupState.InGreen;
+                                            break;
                                     }
+                                    break;
+                                case GroupB:
+                                    switch (inState) {
+                                        case InGreen:
+                                            doBGreen();
+                                            wait(timeInGreen);
+                                            inState = GroupState.WaitintForRed;
+                                            break;
+                                        case WaitintForRed:
+                                            doBRed();
+                                            this.WaitBForRed();
+                                            inState = GroupState.WaitingAdditionalSecond;
+                                            break;
+                                        case WaitingAdditionalSecond:
+                                            wait(timeInSecond);
+                                            outState = Group.GroupC;
+                                            inState = GroupState.InGreen;
+                                            break;
+                                    }
+                                    break;
+                                case GroupC:
+                                    switch (inState) {
+                                        case InGreen:
+                                            doCGreen();
+                                            wait(timeInGreen);
+                                            inState = GroupState.WaitintForRed;
+                                            break;
+                                        case WaitintForRed:
+                                            doCRed();
+                                            this.WaitCForRed();
+                                            inState = GroupState.WaitingAdditionalSecond;
+                                            break;
+                                        case WaitingAdditionalSecond:
+                                            wait(timeInSecond);
+                                            outState = Group.GroupA;
+                                            inState = GroupState.InGreen;
+                                            break;
+                                    }
+                                    break;
                             }
                         }
+                    case ON_SHABAT:
+                        sendEvToShabat();
                 }
             }
         } catch (Exception e) {
@@ -116,4 +164,30 @@ public class CroosRoadControler extends Thread {
             ev.sendEvent();
         }
     }
+
+    private void WaitAForRed() {
+        for(int i : GroupA) {
+            evAtRed[i].waitEvent();
+        }
+    }
+
+    private void WaitBForRed() {
+        for(int i : GroupB) {
+            evAtRed[i].waitEvent();
+        }
+    }
+
+    private void WaitCForRed() {
+        for(int i : GroupC) {
+            evAtRed[i].waitEvent();
+        }
+    }
+
+    private boolean AWalker()
+    {return true;}
+    private boolean BWalker()
+    {return true;}
+    private boolean CWalker()
+    {return true;}
+
 }
