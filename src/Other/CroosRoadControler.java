@@ -18,6 +18,8 @@ public class CroosRoadControler extends Thread {
 
     Event64[] evTogreen, evToRed, evToShabat, evToChol, evAtRed;
 
+    int timeInGreen = 10000;
+
     public CroosRoadControler(Integer[] GroupA, Integer[] GroupB, Integer[] GroupC, Event64[] evTogreen, Event64[] evToRed, Event64[] evToShabat, Event64[] evToChol, Event64[] evAtRed) {
 
         this.GroupA = GroupA;
@@ -34,12 +36,30 @@ public class CroosRoadControler extends Thread {
     public void run() {
         try {
             holShabat = HolShabat.ON_CHOL;
+
             while (true) {
                 switch (holShabat) {
                     case ON_CHOL:
                         sendEvToChol();
                         outState = Group.GroupA;
-                        doAGreen();
+                        inState = GroupState.InGreen;
+
+                        while (holShabat == HolShabat.ON_CHOL) {
+                            switch (outState) {
+                                case GroupA:
+                                    switch (inState) {
+                                        case InGreen:
+                                            doAGreen();
+                                            wait(timeInGreen);
+                                            inState = GroupState.WaitintForRed;
+                                        case WaitintForRed:
+                                            doARed();
+                                            while (true) {
+                                                if()
+                                            }
+                                    }
+                            }
+                        }
                 }
             }
         } catch (Exception e) {
