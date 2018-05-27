@@ -37,6 +37,7 @@ public class CroosRoadControler extends Thread {
             while (true) {
                 switch (holShabat) {
                     case ON_CHOL:
+                        sendEvToChol();
                         outState = Group.GroupA;
                         doAGreen();
                 }
@@ -81,6 +82,18 @@ public class CroosRoadControler extends Thread {
     private void doCGreen() {
         for (int i : GroupC) {
             evTogreen[i].sendEvent();
+        }
+    }
+
+    private void sendEvToChol(){
+        for(Event64 ev : evToChol) {
+            ev.sendEvent();
+        }
+    }
+
+    private void sendEvToShabat() {
+        for(Event64 ev : evToShabat) {
+            ev.sendEvent();
         }
     }
 }
