@@ -30,6 +30,7 @@ public class CarsLight extends Thread {
         this.evToShabat = evToShabat;
         this.evToChol = evToChol;
         this.evAtRed = evAtRed;
+        new CarsMaker(panel,this,key);
         start();
     }
 

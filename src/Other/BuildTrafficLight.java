@@ -26,9 +26,9 @@ public class BuildTrafficLight
     {
         final int numOfLights=4+12+1;
 
-        Integer[] GroupA = {0}; //cars light for A
-        Integer[] GroupB = {1}; //cars light for B
-        Integer[] GroupC = {2,3}; //cars light for C
+        Integer[] GroupA = {0,6,7,9,10,12,13}; //cars light for A
+        Integer[] GroupB = {1,2,4,5,6,7,12,13}; //cars light for B
+        Integer[] GroupC = {2,3,4,5,8,11,14,15}; //cars light for C
 
         Event64[] evTogreen = new Event64[numOfLights - 1], //numOfLights - 1 (without flashing light)
                 evToRed = new Event64[numOfLights - 1],
@@ -114,7 +114,7 @@ public class BuildTrafficLight
         butt[12] = new JRadioButton();
         butt[12].setName(Integer.toString(16));
         butt[12].setBounds(50,30, 55, 20);
-        butt[12].setText("���");
+        butt[12].setText("Shabat");
         butt[12].setOpaque(false);
         butt[12].addActionListener(myListener);
         tlf.addCmp(butt[12]);
