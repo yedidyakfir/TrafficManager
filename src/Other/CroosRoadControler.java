@@ -59,7 +59,7 @@ public class CroosRoadControler extends Thread {
                                             inState = GroupState.ToRed;
                                             break;
                                         case ToRed:
-                                            doARed();
+                                            doARed();//
                                             this.WaitAForRed();
                                             inState = GroupState.AtRed;
                                             break;
