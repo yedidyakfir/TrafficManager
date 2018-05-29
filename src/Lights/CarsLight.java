@@ -201,7 +201,7 @@ public class CarsLight extends Thread
         stop=true;
         setLight(1,Color.LIGHT_GRAY);
         setLight(2,Color.LIGHT_GRAY);
-        setLight(2,Color.LIGHT_GRAY);
+        setLight(3,Color.LIGHT_GRAY);
     }
 
     private void SetToOrange() {
