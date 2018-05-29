@@ -221,8 +221,28 @@ public class CroosRoadControler extends Thread {
         return false;
     }
     private boolean isBWalker()
-    {return true;}
+    {
+        if(btnEvent.arrivedEvent())
+        {
+            int RamzorNumber = (int)btnEvent.waitEvent();
+            if(this.GroupB.contains(RamzorNumber))
+                return true;
+            else
+                btnEvent.sendEvent(RamzorNumber);
+        }
+        return false;
+    }
     private boolean isCWalker()
-    {return true;}
+    {
+        if(btnEvent.arrivedEvent())
+        {
+            int RamzorNumber = (int)btnEvent.waitEvent();
+            if(this.GroupC.contains(RamzorNumber))
+                return true;
+            else
+                btnEvent.sendEvent(RamzorNumber);
+        }
+        return false;
+    }
 
 }

@@ -9,6 +9,9 @@ import Lights.PeopleLight;
 import Lights.Ramzor;
 import GUI.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  * Created on Mimuna 5767  upDate on Addar 5772
  */
@@ -117,6 +120,9 @@ public class BuildTrafficLight
         tlf.addCmp(butt[12]);
 
         //CroosRoadControler Initializing
-        CroosRoadControler croosRoadControler = new CroosRoadControler(GroupA,GroupB, GroupC,evTogreen,evToRed,evToShabat,evToChol,evAtRed,btnEvent);
+        CroosRoadControler croosRoadControler = new CroosRoadControler(new ArrayList<Integer>(Arrays.asList(GroupA)),
+                new ArrayList<Integer>(Arrays.asList(GroupB)), new ArrayList<Integer>(Arrays.asList(GroupC)),
+                evTogreen,evToRed,evToShabat,evToChol,evAtRed,btnEvent);
+
     }
 }
