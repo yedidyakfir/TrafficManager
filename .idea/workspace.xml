@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa43c29b-91b0-4521-a7e9-5909956dc59a" name="Default" comment="added new state, A waiting for red">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="aa43c29b-91b0-4521-a7e9-5909956dc59a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Other/MyActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/MyActionListener.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -80,8 +77,8 @@
       <file leaf-file-name="CroosRoadControler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="220" column="21" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
+            <state relative-caret-position="333">
+              <caret line="239" column="26" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -487,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527422144878</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="created first template for checking is A walker">
+      <created>1527584060734</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1527584060734</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -538,7 +542,8 @@
     <MESSAGE value="create groups for lights" />
     <MESSAGE value="created 2 function to send ev chol and shabat" />
     <MESSAGE value="added new state, A waiting for red" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new state, A waiting for red" />
+    <MESSAGE value="created first template for checking is A walker" />
+    <option name="LAST_COMMIT_MESSAGE" value="created first template for checking is A walker" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Downloads/RunTime/src/BuildTrafficLight.java">
@@ -974,6 +979,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Other/Event64.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/MyActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -985,17 +997,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Other/Event64.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="220" column="21" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
+        <state relative-caret-position="333">
+          <caret line="239" column="26" selection-start-line="239" selection-start-column="26" selection-end-line="239" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
