@@ -10,7 +10,7 @@ public class CarsLight extends Thread {
     JPanel panel;
     Event64 evTogreen, evToRed, evToShabat, evToChol, evAtRed;
     int count;
-
+    private boolean stop = true;
 
     enum OutState {ON_SHABAT, ON_CHOL}
 
@@ -179,7 +179,7 @@ public class CarsLight extends Thread {
 
 
     private void SetToGreen() {
-
+        stop = false;
         setLight(1, Color.LIGHT_GRAY);
         setLight(2, Color.LIGHT_GRAY);
         setLight(3, Color.GREEN);
@@ -192,7 +192,7 @@ public class CarsLight extends Thread {
     }
 
     private void SetToGray() {
-
+        stop = true;
         setLight(1, Color.LIGHT_GRAY);
         setLight(2, Color.LIGHT_GRAY);
         setLight(3, Color.LIGHT_GRAY);
@@ -203,7 +203,7 @@ public class CarsLight extends Thread {
     }
 
     private void SetToYellow() {
-
+        stop = true;
         setLight(1, Color.LIGHT_GRAY);
         setLight(2, Color.YELLOW);
         setLight(3, Color.LIGHT_GRAY);
@@ -227,4 +227,7 @@ public class CarsLight extends Thread {
     }
 
 
+    public boolean isStop() {
+        return stop;
+    }
 }
