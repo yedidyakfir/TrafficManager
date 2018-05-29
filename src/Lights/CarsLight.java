@@ -5,35 +5,35 @@ import Other.*;
 import javax.swing.JPanel;
 
 
-public class CarsLight extends Thread
-{
+public class CarsLight extends Thread {
     Ramzor ramzor;
     JPanel panel;
-    Event64 evTogreen,evToRed,evToShabat,evToChol,evAtRed;
+    Event64 evTogreen, evToRed, evToShabat, evToChol, evAtRed;
     int count;
-    private boolean stop=true;
 
-    enum OutState{ON_SHABAT,ON_CHOL}
-    enum InState{ON_RED,ON_GREEN,ON_ORANGE,ON_YELLOW,YELLOW_ON,YELLOW_OFF,GREEN_BLINK}
-    enum InInState{GREEN_ON,GREEN_OFF}
+
+    enum OutState {ON_SHABAT, ON_CHOL}
+
+    enum InState {ON_RED, ON_GREEN, ON_ORANGE, ON_YELLOW, YELLOW_ON, YELLOW_OFF, GREEN_BLINK}
+
+    enum InInState {GREEN_ON, GREEN_OFF}
+
     OutState outState;
     InState inState;
     InInState inInState;
 
-    public CarsLight( Ramzor ramzor,JPanel panel,int key,Event64 evTogreen,Event64 evToRed,Event64 evToShabat,Event64 evToChol,Event64 evAtRed)
-    {
-        this.ramzor=ramzor;
-        this.panel=panel;
-        this.evTogreen=evTogreen;
-        this.evToRed=evToRed;
-        this.evToShabat=evToShabat;
-        this.evToChol=evToChol;
-        this.evAtRed=evAtRed;
+    public CarsLight(Ramzor ramzor, JPanel panel, int key, Event64 evTogreen, Event64 evToRed, Event64 evToShabat, Event64 evToChol, Event64 evAtRed) {
+        this.ramzor = ramzor;
+        this.panel = panel;
+        this.evTogreen = evTogreen;
+        this.evToRed = evToRed;
+        this.evToShabat = evToShabat;
+        this.evToChol = evToChol;
+        this.evAtRed = evAtRed;
         start();
     }
 
-    public void run()
-    {
+    public void run() {
         try {
             outState = OutState.ON_CHOL;
             while (true) {
@@ -167,75 +167,64 @@ public class CarsLight extends Thread
                         }
                 }
             }
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+        }
 
     }
-    public void setLight(int place, Color color)
-    {
-        ramzor.colorLight[place-1]=color;
+
+    public void setLight(int place, Color color) {
+        ramzor.colorLight[place - 1] = color;
         panel.repaint();
     }
 
-    public boolean isStop()
-    {
-        return stop;
+
+    private void SetToGreen() {
+
+        setLight(1, Color.LIGHT_GRAY);
+        setLight(2, Color.LIGHT_GRAY);
+        setLight(3, Color.GREEN);
     }
 
-    private void SetToGreen()
-    {
-        stop=false;
-        setLight(1,Color.LIGHT_GRAY);
-        setLight(2,Color.LIGHT_GRAY);
-        setLight(3,Color.GREEN);
+    private void SetToRed() {
+        setLight(1, Color.RED);
+        setLight(2, Color.LIGHT_GRAY);
+        setLight(3, Color.LIGHT_GRAY);
     }
 
-    private void SetToRed()
-    {
-        setLight(1,Color.RED);
-        setLight(2,Color.LIGHT_GRAY);
-        setLight(3,Color.LIGHT_GRAY);
-    }
+    private void SetToGray() {
 
-    private void SetToGray()
-    {
-        stop=true;
-        setLight(1,Color.LIGHT_GRAY);
-        setLight(2,Color.LIGHT_GRAY);
-        setLight(3,Color.LIGHT_GRAY);
+        setLight(1, Color.LIGHT_GRAY);
+        setLight(2, Color.LIGHT_GRAY);
+        setLight(3, Color.LIGHT_GRAY);
     }
 
     private void SetToOrange() {
-        setLight(2,Color.YELLOW);
+        setLight(2, Color.YELLOW);
     }
 
-    private void SetToYellow()
-    {
-        stop = true;
-        setLight(1,Color.LIGHT_GRAY);
-        setLight(2,Color.YELLOW);
-        setLight(3,Color.LIGHT_GRAY);
+    private void SetToYellow() {
+
+        setLight(1, Color.LIGHT_GRAY);
+        setLight(2, Color.YELLOW);
+        setLight(3, Color.LIGHT_GRAY);
     }
 
-    private void SetGreenOff()
-    {
-        setLight(3,Color.LIGHT_GRAY);
+    private void SetGreenOff() {
+        setLight(3, Color.LIGHT_GRAY);
     }
 
-    private void SetGreenOn()
-    {
-        setLight(3,Color.GREEN);
+    private void SetGreenOn() {
+        setLight(3, Color.GREEN);
     }
 
-    private void SetYellowOn()
-    {
-        setLight(2,Color.YELLOW);
+    private void SetYellowOn() {
+        setLight(2, Color.YELLOW);
 
     }
 
-    private void SetYellowOff()
-    {
-        setLight(2,Color.LIGHT_GRAY);
+    private void SetYellowOff() {
+        setLight(2, Color.LIGHT_GRAY);
     }
+
 
 }
-
