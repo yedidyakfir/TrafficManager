@@ -103,7 +103,7 @@ public class PeopleLight extends Thread
     private void SetToRed()
     {
         setLight(1,Color.GRAY);
-        setLight(2,Color.GREEN);
+        setLight(2,Color.RED);
     }
 
     private void SetToGray()

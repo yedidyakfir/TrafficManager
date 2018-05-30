@@ -21,7 +21,7 @@ public class MyActionListener implements ActionListener
         //		butt.setEnabled(false);
         //		butt.setSelected(false);
 
-        alarmController.sendEvent(butt.getName());
+        alarmController.sendEvent(Integer.parseInt(butt.getName()));
     }
 
 }

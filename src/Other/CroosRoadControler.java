@@ -136,6 +136,7 @@ public class CroosRoadControler extends Thread {
                 }
             }
         } catch (Exception e) {
+             System.out.println(e.getMessage());
         }
     }
 
