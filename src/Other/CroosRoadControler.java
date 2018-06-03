@@ -130,9 +130,20 @@ public class CroosRoadControler extends Thread {
                                     }
                                     break;
                             }
+                            if(isShabatCholSwitch()){
+                                holShabat = HolShabat.ON_SHABAT;
+                            }
                         }
                     case ON_SHABAT:
                         sendEvToShabat();
+                        while (true)
+                        {
+                            if(isShabatCholSwitch())
+                            {
+                                holShabat = HolShabat.ON_CHOL;
+                                break;
+                            }
+                        }
                 }
             }
         } catch (Exception e) {
@@ -245,5 +256,19 @@ public class CroosRoadControler extends Thread {
         }
         return false;
     }
+
+    private boolean isShabatCholSwitch()
+    {
+        if(btnEvent.arrivedEvent())
+        {
+            int shabatNum = (int)btnEvent.waitEvent();
+            if(shabatNum == 16)
+                return true;
+            else
+                btnEvent.sendEvent(shabatNum);
+        }
+        return false;
+    }
+
 
 }
