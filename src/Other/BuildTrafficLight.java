@@ -37,6 +37,8 @@ public class BuildTrafficLight
                 evAtRed = new Event64[numOfLights - 1];
 
 
+
+
         for(int i=0; i<numOfLights - 1 ; i++) //Initializing events for lights
         {
             evTogreen[i]=new Event64();
@@ -87,6 +89,7 @@ public class BuildTrafficLight
         Event64 btnEvent = new Event64();
         MyActionListener myListener=new MyActionListener(btnEvent);
 
+
         JRadioButton butt[]=new JRadioButton[13];
 
         for (int i=0;i<butt.length-1;i++)
@@ -118,6 +121,7 @@ public class BuildTrafficLight
         butt[12].setOpaque(false);
         butt[12].addActionListener(myListener);
         tlf.addCmp(butt[12]);
+
 
         //CroosRoadControler Initializing
         CroosRoadControler croosRoadControler = new CroosRoadControler(new ArrayList<Integer>(Arrays.asList(GroupA)),

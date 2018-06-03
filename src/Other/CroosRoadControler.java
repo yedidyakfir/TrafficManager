@@ -163,7 +163,7 @@ public class CroosRoadControler extends Thread {
                         }
                     case ON_SHABAT:
                         sendEvToShabat();
-                       /* while (true)
+                      /* while (true)
                         {
                             if(isShabatCholSwitch())
                             {
