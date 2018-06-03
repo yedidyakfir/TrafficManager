@@ -56,9 +56,9 @@ public class CroosRoadControler extends Thread {
                                     switch (inState) {
                                         case InGreen:
                                             doAGreen();
-                                            //Thread.sleep(timeInGreen);
-                                            evTimer = new Event64();
-                                            new MyTimer72(timeInGreen,evTimer);
+                                            Thread.sleep(timeInGreen);
+                                            //evTimer = new Event64();
+                                            //new MyTimer72(timeInGreen,evTimer);
                                             inState = GroupState.ToRed;
                                             break;
                                         case ToRed:
@@ -67,9 +67,9 @@ public class CroosRoadControler extends Thread {
                                             inState = GroupState.AtRed;
                                             break;
                                         case AtRed:
-                                            //Thread.sleep(timeInSecond);
-                                            evTimer = new Event64();
-                                            new MyTimer72(timeInSecond,evTimer);
+                                            Thread.sleep(timeInSecond);
+                                            //evTimer = new Event64();
+                                            //new MyTimer72(timeInSecond,evTimer);
                                             if(isBWalker())
                                                 outState = Group.GroupB;
                                             else if(isCWalker())
@@ -86,9 +86,9 @@ public class CroosRoadControler extends Thread {
                                     switch (inState) {
                                         case InGreen:
                                             doBGreen();
-                                            //Thread.sleep(timeInGreen);
-                                            evTimer = new Event64();
-                                            new MyTimer72(timeInGreen,evTimer);
+                                            Thread.sleep(timeInGreen);
+                                            //evTimer = new Event64();
+                                            //new MyTimer72(timeInGreen,evTimer);
                                             inState = GroupState.ToRed;
                                             break;
                                         case ToRed:
@@ -97,9 +97,9 @@ public class CroosRoadControler extends Thread {
                                             inState = GroupState.AtRed;
                                             break;
                                         case AtRed:
-                                           // Thread.sleep(timeInSecond);
-                                            evTimer = new Event64();
-                                            new MyTimer72(timeInSecond,evTimer);
+                                            Thread.sleep(timeInSecond);
+                                            //evTimer = new Event64();
+                                            //new MyTimer72(timeInSecond,evTimer);
                                             if(isCWalker())
                                                 outState = Group.GroupC;
                                             else if(isAWalker())
@@ -116,9 +116,9 @@ public class CroosRoadControler extends Thread {
                                     switch (inState) {
                                         case InGreen:
                                             doCGreen();
-                                            //Thread.sleep(timeInGreen);
-                                            evTimer = new Event64();
-                                            new MyTimer72(timeInGreen,evTimer);
+                                            Thread.sleep(timeInGreen);
+                                            //evTimer = new Event64();
+                                            //new MyTimer72(timeInGreen,evTimer);
                                             inState = GroupState.ToRed;
                                             break;
                                         case ToRed:
@@ -127,9 +127,9 @@ public class CroosRoadControler extends Thread {
                                             inState = GroupState.AtRed;
                                             break;
                                         case AtRed:
-                                            //Thread.sleep(timeInSecond);
-                                            evTimer = new Event64();
-                                            new MyTimer72(timeInGreen,evTimer);
+                                            Thread.sleep(timeInSecond);
+                                            //evTimer = new Event64();
+                                            //new MyTimer72(timeInGreen,evTimer);
                                             if(isAWalker())
                                                 outState = Group.GroupA;
                                             else if(isBWalker())
