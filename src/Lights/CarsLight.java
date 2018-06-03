@@ -155,12 +155,12 @@ public class CarsLight extends Thread {
                             }
                             switch (inState) {
                                 case YELLOW_ON:
-                                    sleep(1000);
+                                    Thread.sleep(1000);
                                     SetYellowOff();
                                     inState = InState.YELLOW_OFF;
                                     break;
                                 case YELLOW_OFF:
-                                    sleep(1000);
+                                    Thread.sleep(1000);
                                     SetYellowOn();
                                     inState = InState.YELLOW_ON;
                                     break;

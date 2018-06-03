@@ -7,35 +7,42 @@ import java.util.ArrayList;
 public class CroosRoadControler extends Thread {
 
     enum HolShabat {ON_SHABAT, ON_CHOL}
-    enum Group {GroupA, GroupB, GroupC}
-    enum GroupState {InGreen, ToRed, AtRed}
+    enum State {AInGreen,AToRed,AAtRed,cond1,BInGreen,BToRed,BAtRed,cond2,CInGreen,CToRed,CAtRed,cond3}
 
     HolShabat holShabat;
-    Group outState;
-    GroupState inState;
+    State state;
 
     ArrayList<Integer> GroupA;
     ArrayList<Integer> GroupB;
     ArrayList<Integer> GroupC;
 
     Event64[] evTogreen, evToRed, evToShabat, evToChol, evAtRed;
-    Event64 btnEvent;
+    Event64 evBtnShabat,evBtnChol,evBtnRegel;
     Event64 evTimer;
 
     int timeInGreen = 3000;
     int timeInSecond = 1000;
+    int ramzorNum;
 
-    public CroosRoadControler(ArrayList<Integer> GroupA, ArrayList<Integer> GroupB, ArrayList<Integer> GroupC, Event64[] evTogreen, Event64[] evToRed, Event64[] evToShabat, Event64[] evToChol, Event64[] evAtRed,Event64 btn) {
-
-        this.GroupA = GroupA;
-        this.GroupB = GroupB;
-        this.GroupC = GroupC;
+    public CroosRoadControler(ArrayList<Integer> groupA, ArrayList<Integer> groupB,
+                              ArrayList<Integer> groupC, Event64[] evTogreen, Event64[] evToRed, Event64[] evToShabat,
+                              Event64[] evToChol, Event64[] evAtRed, Event64 evBtnShabat, Event64 evBtnChol, Event64 evBtnRegel)
+    {
+        GroupA = groupA;
+        GroupB = groupB;
+        GroupC = groupC;
         this.evTogreen = evTogreen;
         this.evToRed = evToRed;
         this.evToShabat = evToShabat;
         this.evToChol = evToChol;
         this.evAtRed = evAtRed;
-        this.btnEvent = btn;
+        this.evBtnShabat = evBtnShabat;
+        this.evBtnChol = evBtnChol;
+        this.evBtnRegel = evBtnRegel;
+        this.evTimer = evTimer;
+        this.timeInGreen = timeInGreen;
+        this.timeInSecond = timeInSecond;
+        this.ramzorNum = ramzorNum;
         start();
     }
 
@@ -46,132 +53,283 @@ public class CroosRoadControler extends Thread {
             while (true) {
                 switch (holShabat) {
                     case ON_CHOL:
-                        sendEvToChol();
-                        outState = Group.GroupA;
-                        inState = GroupState.InGreen;
+                        state = State.AInGreen;
 
+                        doAGreen();
+
+                        evTimer = new Event64();
+                        new MyTimer72(timeInGreen,evTimer);
                         while (holShabat == HolShabat.ON_CHOL) {
-                            switch (outState) {
-                                case GroupA:
-                                    switch (inState) {
-                                        case InGreen:
-                                            doAGreen();
-                                            //Thread.sleep(timeInGreen);
+                            switch (state) {
+                                case AInGreen:
+                                    while(true){
+                                        if(evTimer.arrivedEvent())
+                                        {
+                                            evTimer.waitEvent();
+                                            doARed();
+                                            state = State.AToRed;
+                                            break;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
+                                            break;
+                                        }
+                                        else
+                                            yield();
+                                    }
+                                    break;
+                                case AToRed:
+                                    while(true){
+                                        if(evGroupAArrived())
+                                        {
+                                            resetGroupAArrived();
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInSecond,evTimer);
+                                            state = State.AAtRed;
+                                            break;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
+                                            break;
+                                        }
+                                        else
+                                            yield();
+                                    }
+                                    break;
+                                case AAtRed:
+                                    while(true){
+                                        if(evTimer.arrivedEvent())
+                                        {
+                                            evTimer.waitEvent();
+                                            doBGreen();
                                             evTimer = new Event64();
                                             new MyTimer72(timeInGreen,evTimer);
-                                            while(true)
-                                            {
-                                                if(isShabatCholSwitch())
-                                                {
-                                                    holShabat=HolShabat.ON_SHABAT;
-                                                    break;
-                                                }
-                                                else if(evTimer.arrivedEvent())
-                                                {
-                                                    inState = GroupState.ToRed;
-                                                    break;
-                                                }
-                                                else
-                                                {
-                                                    yield();
-                                                }
-                                            }
+                                            state = State.BInGreen;
                                             break;
-                                        case ToRed:
-                                            doARed();
-                                            this.WaitAForRed();
-
-                                            inState = GroupState.AtRed;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
                                             break;
-                                        case AtRed:
-                                            Thread.sleep(timeInSecond);
-                                            //evTimer = new Event64();
-                                            //new MyTimer72(timeInSecond,evTimer);
-                                            if(isBWalker())
-                                                outState = Group.GroupB;
-                                            else if(isCWalker())
-                                                outState = Group.GroupC;
-                                            else if(isAWalker())
-                                                outState = Group.GroupA;
-                                            else
-                                                outState = Group.GroupB;
-                                            inState = GroupState.InGreen;
+                                        }
+                                        else if(evBtnRegel.arrivedEvent())
+                                        {
+                                            ramzorNum = ((int)evBtnRegel.waitEvent());
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInGreen,evTimer);
+                                            state = State.cond1;
                                             break;
+                                        }
+                                        else
+                                            yield();
                                     }
                                     break;
-                                case GroupB:
-                                    switch (inState) {
-                                        case InGreen:
-                                            doBGreen();
-                                            Thread.sleep(timeInGreen);
-                                            //evTimer = new Event64();
-                                            //new MyTimer72(timeInGreen,evTimer);
-                                            inState = GroupState.ToRed;
-                                            break;
-                                        case ToRed:
+                                case cond1:
+                                    if(isBWalker()) {
+                                        state = State.BInGreen;
+                                        doBGreen();
+                                    }
+                                    else if(isCWalker()) {
+                                        state = State.CInGreen;
+                                        doCGreen();
+                                    }
+                                    else if(isAWalker()) {
+                                        state = State.AInGreen;
+                                        doAGreen();
+                                    }
+                                case BInGreen:
+                                    while(true){
+                                        if(evTimer.arrivedEvent())
+                                        {
+                                            evTimer.waitEvent();
                                             doBRed();
-                                            this.WaitBForRed();
-                                            inState = GroupState.AtRed;
+                                            state = State.BToRed;
                                             break;
-                                        case AtRed:
-                                            Thread.sleep(timeInSecond);
-                                            //evTimer = new Event64();
-                                            //new MyTimer72(timeInSecond,evTimer);
-                                            if(isCWalker())
-                                                outState = Group.GroupC;
-                                            else if(isAWalker())
-                                                outState = Group.GroupA;
-                                            else if(isBWalker())
-                                                outState = Group.GroupB;
-                                            else
-                                                outState = Group.GroupC;
-                                            inState = GroupState.InGreen;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
                                             break;
+                                        }
+                                        else
+                                            yield();
                                     }
                                     break;
-                                case GroupC:
-                                    switch (inState) {
-                                        case InGreen:
+                                case BToRed:
+                                    while(true){
+                                        if(evGroupBArrived())
+                                        {
+                                            resetGroupBArrived();
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInSecond,evTimer);
+                                            state = State.BAtRed;
+                                            break;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
+                                            break;
+                                        }
+                                        else
+                                            yield();
+                                    }
+                                    break;
+                                case BAtRed:
+                                    while(true){
+                                        if(evTimer.arrivedEvent())
+                                        {
+                                            evTimer.waitEvent();
                                             doCGreen();
-                                            Thread.sleep(timeInGreen);
-                                            //evTimer = new Event64();
-                                            //new MyTimer72(timeInGreen,evTimer);
-                                            inState = GroupState.ToRed;
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInGreen,evTimer);
+                                            state = State.CInGreen;
                                             break;
-                                        case ToRed:
-                                            doCRed();
-                                            this.WaitCForRed();
-                                            inState = GroupState.AtRed;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
                                             break;
-                                        case AtRed:
-                                            Thread.sleep(timeInSecond);
-                                            //evTimer = new Event64();
-                                            //new MyTimer72(timeInGreen,evTimer);
-                                            if(isAWalker())
-                                                outState = Group.GroupA;
-                                            else if(isBWalker())
-                                                outState = Group.GroupB;
-                                            else if(isCWalker())
-                                                outState = Group.GroupC;
-                                            else
-                                                outState = Group.GroupA;
-                                            inState = GroupState.InGreen;
+                                        }
+                                        else if(evBtnRegel.arrivedEvent())
+                                        {
+                                            ramzorNum = ((int)evBtnRegel.waitEvent());
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInGreen,evTimer);
+                                            state = State.cond2;
                                             break;
+                                        }
+                                        else
+                                            yield();
                                     }
                                     break;
+                                case cond2:
+                                    if(isCWalker()) {
+                                        state = State.CInGreen;
+                                        doCGreen();
+                                    }
+                                    else if(isAWalker()) {
+                                        state = State.AInGreen;
+                                        doAGreen();
+                                    }
+                                    else if(isBWalker()) {
+                                        state = State.BInGreen;
+                                        doBGreen();
+                                    }
+                                case CInGreen:
+                                    while(true){
+                                        if(evTimer.arrivedEvent())
+                                        {
+                                            evTimer.waitEvent();
+                                            doCRed();
+                                            state = State.CToRed;
+                                            break;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
+                                            break;
+                                        }
+                                        else
+                                            yield();
+                                    }
+                                    break;
+                                case CToRed:
+                                    while(true){
+                                        if(evGroupCArrived())
+                                        {
+                                            resetGroupCArrived();
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInSecond,evTimer);
+                                            state = State.CAtRed;
+                                            break;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
+                                            break;
+                                        }
+                                        else
+                                            yield();
+                                    }
+                                    break;
+                                case CAtRed:
+                                    while(true){
+                                        if(evTimer.arrivedEvent())
+                                        {
+                                            evTimer.waitEvent();
+                                            doAGreen();
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInGreen,evTimer);
+                                            state = State.AInGreen;
+                                            break;
+                                        }
+                                        else if(evBtnShabat.arrivedEvent())
+                                        {
+                                            evBtnShabat.waitEvent();
+                                            sendEvToShabat();
+                                            holShabat = HolShabat.ON_SHABAT;
+                                            break;
+                                        }
+                                        else if(evBtnRegel.arrivedEvent())
+                                        {
+                                            ramzorNum = ((int)evBtnRegel.waitEvent());
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInGreen,evTimer);
+                                            state = State.cond3;
+                                            break;
+                                        }
+                                        else
+                                            yield();
+                                    }
+                                    break;
+                                case cond3:
+                                    if(isAWalker()) {
+                                        state = State.AInGreen;
+                                        doAGreen();
+                                    }
+                                    else if(isBWalker()) {
+                                        state = State.BInGreen;
+                                        doBGreen();
+                                    }
+                                    else if(isCWalker()) {
+                                        state = State.CInGreen;
+                                        doCGreen();
+                                    }
+                                    break;
+
                             }
                         }
+                        holShabat = HolShabat.ON_SHABAT;
                     case ON_SHABAT:
-                        sendEvToShabat();
-                      /* while (true)
+                        while (holShabat == HolShabat.ON_SHABAT)
                         {
-                            if(isShabatCholSwitch())
+                            if(evBtnChol.arrivedEvent())
                             {
+                                evBtnChol.waitEvent();
                                 holShabat = HolShabat.ON_CHOL;
                                 break;
                             }
                             yield();
-                        }*/
+                        }
+                        sendEvToChol();
                 }
             }
         } catch (Exception e) {
@@ -230,19 +388,43 @@ public class CroosRoadControler extends Thread {
         }
     }
 
-    private void WaitAForRed() {
+    private boolean evGroupAArrived(){
+        boolean flag = true;
+        for(int i: GroupA) {
+            flag &= evAtRed[i].arrivedEvent();
+        }
+        return flag;
+    }
+
+    private boolean evGroupBArrived(){
+        boolean flag = true;
+        for(int i: GroupB) {
+            flag &= evAtRed[i].arrivedEvent();
+        }
+        return flag;
+    }
+
+    private boolean evGroupCArrived(){
+        boolean flag = true;
+        for(int i: GroupC) {
+            flag &= evAtRed[i].arrivedEvent();
+        }
+        return flag;
+    }
+
+    private void resetGroupAArrived() {
         for(int i : GroupA) {
             evAtRed[i].waitEvent();
         }
     }
 
-    private void WaitBForRed() {
+    private void resetGroupBArrived() {
         for(int i : GroupB) {
             evAtRed[i].waitEvent();
         }
     }
 
-    private void WaitCForRed() {
+    private void resetGroupCArrived() {
         for(int i : GroupC) {
             evAtRed[i].waitEvent();
         }
@@ -250,53 +432,23 @@ public class CroosRoadControler extends Thread {
 
     private boolean isAWalker()
     {
-        if(btnEvent.arrivedEvent())
-        {
-            int RamzorNumber = (int)btnEvent.waitEvent();
-            if(this.GroupA.contains(RamzorNumber))
-                return true;
-            else
-                btnEvent.sendEvent(RamzorNumber);
-        }
-        return false;
+        if(this.GroupA.contains(ramzorNum))
+            return true;
+        else
+            return false;
     }
     private boolean isBWalker()
     {
-        if(btnEvent.arrivedEvent())
-        {
-            int RamzorNumber = (int)btnEvent.waitEvent();
-            if(this.GroupB.contains(RamzorNumber))
-                return true;
-            else
-                btnEvent.sendEvent(RamzorNumber);
-        }
-        return false;
+        if(this.GroupB.contains(ramzorNum))
+            return true;
+        else
+            return false;
     }
     private boolean isCWalker()
     {
-        if(btnEvent.arrivedEvent())
-        {
-            int RamzorNumber = (int)btnEvent.waitEvent();
-            if(this.GroupC.contains(RamzorNumber))
-                return true;
-            else
-                btnEvent.sendEvent(RamzorNumber);
-        }
-        return false;
+        if(this.GroupC.contains(ramzorNum))
+            return true;
+        else
+            return false;
     }
-
-    private boolean isShabatCholSwitch()
-    {
-        if(btnEvent.arrivedEvent())
-        {
-            int shabatNum = (int)btnEvent.waitEvent();
-            if(shabatNum == 16)
-                return true;
-            else
-                btnEvent.sendEvent(shabatNum);
-        }
-        return false;
-    }
-
-
 }

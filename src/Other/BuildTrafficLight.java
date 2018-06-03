@@ -86,8 +86,8 @@ public class BuildTrafficLight
         //FlashingLight Initializing
         new FlashingLight(ramzorim[16],tlf.myPanel);
 
-        Event64 btnEvent = new Event64();
-        MyActionListener myListener=new MyActionListener(btnEvent);
+        Event64 evShabat = new Event64(), evChol = new Event64(),evRegel = new Event64();
+        MyActionListener myListener=new MyActionListener(evShabat,evChol,evRegel);
 
 
         JRadioButton butt[]=new JRadioButton[13];
@@ -126,7 +126,7 @@ public class BuildTrafficLight
         //CroosRoadControler Initializing
         CroosRoadControler croosRoadControler = new CroosRoadControler(new ArrayList<Integer>(Arrays.asList(GroupA)),
                 new ArrayList<Integer>(Arrays.asList(GroupB)), new ArrayList<Integer>(Arrays.asList(GroupC)),
-                evTogreen,evToRed,evToShabat,evToChol,evAtRed,btnEvent);
+                evTogreen,evToRed,evToShabat,evToChol,evAtRed,evShabat,evChol,evRegel);
 
     }
 }
