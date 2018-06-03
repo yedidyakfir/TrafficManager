@@ -156,6 +156,7 @@ public class CroosRoadControler extends Thread {
                                 holShabat = HolShabat.ON_CHOL;
                                 break;
                             }
+                            yield();
                         }
                 }
             }
