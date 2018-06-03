@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa43c29b-91b0-4521-a7e9-5909956dc59a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +54,8 @@
       <file leaf-file-name="CroosRoadControler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3601">
-              <caret line="268" column="9" lean-forward="true" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
+            <state relative-caret-position="400">
+              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -259,9 +259,7 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Lights/CarsLight.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Other/BuildTrafficLight.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Other/CroosRoadControler.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -269,6 +267,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Other/MyTimer72.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -579,12 +578,25 @@
       <option name="project" value="LOCAL" />
       <updated>1527693344239</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added shabat chol handler">
+      <created>1528022568963</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1528022568963</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added shabat chol handler">
+      <created>1528022591902</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1528022591902</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -595,7 +607,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" weight="0.29330498" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24973433" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32943678" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -604,7 +616,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49947917" visible="true" weight="0.29330498" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49947917" weight="0.29330498" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -635,20 +647,21 @@
     <MESSAGE value="converted the arrays to arraylist" />
     <MESSAGE value="fixed wait (exchange with sleep)" />
     <MESSAGE value="btns now working" />
-    <option name="LAST_COMMIT_MESSAGE" value="btns now working" />
+    <MESSAGE value="added shabat chol handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="added shabat chol handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Other/CroosRoadControler.java</url>
-          <line>142</line>
+          <line>155</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Other/CroosRoadControler.java</url>
-          <line>137</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -1123,8 +1136,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3601">
-          <caret line="268" column="9" lean-forward="true" selection-start-line="268" selection-start-column="9" selection-end-line="268" selection-end-column="9" />
+        <state relative-caret-position="400">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1188,7 +1201,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
