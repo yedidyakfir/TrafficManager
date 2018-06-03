@@ -56,14 +56,31 @@ public class CroosRoadControler extends Thread {
                                     switch (inState) {
                                         case InGreen:
                                             doAGreen();
-                                            Thread.sleep(timeInGreen);
-                                            //evTimer = new Event64();
-                                            //new MyTimer72(timeInGreen,evTimer);
-                                            inState = GroupState.ToRed;
+                                            //Thread.sleep(timeInGreen);
+                                            evTimer = new Event64();
+                                            new MyTimer72(timeInGreen,evTimer);
+                                            while(true)
+                                            {
+                                                if(isShabatCholSwitch())
+                                                {
+                                                    holShabat=HolShabat.ON_SHABAT;
+                                                    break;
+                                                }
+                                                else if(evTimer.arrivedEvent())
+                                                {
+                                                    inState = GroupState.ToRed;
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    yield();
+                                                }
+                                            }
                                             break;
                                         case ToRed:
                                             doARed();
                                             this.WaitAForRed();
+
                                             inState = GroupState.AtRed;
                                             break;
                                         case AtRed:
@@ -143,13 +160,10 @@ public class CroosRoadControler extends Thread {
                                     }
                                     break;
                             }
-                            if(isShabatCholSwitch()){
-                                holShabat = HolShabat.ON_SHABAT;
-                            }
                         }
                     case ON_SHABAT:
                         sendEvToShabat();
-                        while (true)
+                       /* while (true)
                         {
                             if(isShabatCholSwitch())
                             {
@@ -157,7 +171,7 @@ public class CroosRoadControler extends Thread {
                                 break;
                             }
                             yield();
-                        }
+                        }*/
                 }
             }
         } catch (Exception e) {
