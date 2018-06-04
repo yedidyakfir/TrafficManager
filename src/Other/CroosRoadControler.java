@@ -39,10 +39,6 @@ public class CroosRoadControler extends Thread {
         this.evBtnShabat = evBtnShabat;
         this.evBtnChol = evBtnChol;
         this.evBtnRegel = evBtnRegel;
-        this.evTimer = evTimer;
-        this.timeInGreen = timeInGreen;
-        this.timeInSecond = timeInSecond;
-        this.ramzorNum = ramzorNum;
         start();
     }
 
@@ -229,6 +225,7 @@ public class CroosRoadControler extends Thread {
                                         state = State.BInGreen;
                                         doBGreen();
                                     }
+                                    break;
                                 case CInGreen:
                                     while(true){
                                         if(evTimer.arrivedEvent())
@@ -314,10 +311,10 @@ public class CroosRoadControler extends Thread {
                                         doCGreen();
                                     }
                                     break;
-
                             }
                         }
                         holShabat = HolShabat.ON_SHABAT;
+                        break;
                     case ON_SHABAT:
                         while (holShabat == HolShabat.ON_SHABAT)
                         {
@@ -330,6 +327,7 @@ public class CroosRoadControler extends Thread {
                             yield();
                         }
                         sendEvToChol();
+                        break;
                 }
             }
         } catch (Exception e) {

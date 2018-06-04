@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa43c29b-91b0-4521-a7e9-5909956dc59a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lights/CarsLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lights/CarsLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/CroosRoadControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Other/MyActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Other/MyActionListener.java" afterDir="false" />
     </list>
@@ -34,8 +31,8 @@
       <file leaf-file-name="CroosRoadControler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+            <state relative-caret-position="627">
+              <caret line="329" column="30" selection-start-line="329" selection-start-column="30" selection-end-line="329" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,8 +43,8 @@
       <file leaf-file-name="MyActionListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Other/MyActionListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+            <state relative-caret-position="-126">
+              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -94,17 +91,17 @@
         <option value="$PROJECT_DIR$/src/Lights/PeopleLight.java" />
         <option value="$USER_HOME$/Downloads/RunTime/ServerClient78ForStu/Server78/Dialog78.java" />
         <option value="$PROJECT_DIR$/src/Lights/CarsLight.java" />
-        <option value="$PROJECT_DIR$/src/Other/MyActionListener.java" />
         <option value="$PROJECT_DIR$/src/Other/BuildTrafficLight.java" />
+        <option value="$PROJECT_DIR$/src/Other/MyActionListener.java" />
         <option value="$PROJECT_DIR$/src/Other/CroosRoadControler.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="208" />
-    <option name="y" value="16" />
-    <option name="width" value="1120" />
-    <option name="height" value="792" />
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="990" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -408,11 +405,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528023318059</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="after todays lesson the lecturer explained to me how we did everything wrong">
+      <created>1528061347603</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1528061347603</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -423,17 +427,17 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" weight="0.29330498" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32412326" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42068964" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32943678" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13854167" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17317708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49947917" visible="true" weight="0.2922423" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49947917" weight="0.2922423" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -466,7 +470,8 @@
     <MESSAGE value="btns now working" />
     <MESSAGE value="added shabat chol handler" />
     <MESSAGE value="fixed shabat state" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed shabat state" />
+    <MESSAGE value="after todays lesson the lecturer explained to me how we did everything wrong" />
+    <option name="LAST_COMMIT_MESSAGE" value="after todays lesson the lecturer explained to me how we did everything wrong" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -485,7 +490,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Other/CroosRoadControler.java</url>
-          <line>55</line>
+          <line>51</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
@@ -986,8 +991,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/MyActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        <state relative-caret-position="-126">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1003,8 +1008,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Other/CroosRoadControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+        <state relative-caret-position="627">
+          <caret line="329" column="30" selection-start-line="329" selection-start-column="30" selection-end-line="329" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -25,8 +25,10 @@ public class MyActionListener implements ActionListener
             else
                 evChol.sendEvent();
         }
-        else
-            evRegel.sendEvent(butt.getName());
+        else {
+            evRegel.sendEvent(Integer.parseInt(butt.getName()));
+            //butt.setSelected(false);
+        }
         System.out.println(butt.getName());
         //		butt.setEnabled(false);
         //		butt.setSelected(false);
